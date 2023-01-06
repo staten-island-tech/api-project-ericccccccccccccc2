@@ -3,6 +3,7 @@ import "./style.css";
 const button = document.getElementById("btn");
 const in1 = document.getElementById("name");
 const in2 = document.getElementById("tag");
+const div = document.getElementById("amongus");
 
 async function create() {
   try {
@@ -13,9 +14,12 @@ async function create() {
     const temp = await fetch(name_level);
     const array = await temp.json();
     console.log(array);
-    document.getElementById(
-      "amongus"
-    ).innerHTML = `<p>${array.data.account_level}</p>`;
+    div.insertAdjacentHTML(
+      "afterend",
+      `<div class="help">
+      <h1 class="subtitles">${array.data.name}</h1>
+      </div>`
+    );
   } catch (error) {
     console.log(error);
   }

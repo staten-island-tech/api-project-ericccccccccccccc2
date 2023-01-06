@@ -21,6 +21,12 @@ h4 {
 #amongus {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
   font-family: 'Nunito Sans', sans-serif;
+}
+
+.subtitles {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Anybody', cursive;
 }
