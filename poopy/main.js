@@ -5,19 +5,37 @@ const in1 = document.getElementById("name");
 const in2 = document.getElementById("tag");
 const div = document.getElementById("amongus");
 
+function levelreturn(level) {
+  if (parseInt(level) < 20) {
+    return "You're not a loser and are very cool";
+  } else if (parseInt(level) < 40) {
+    return "You're starting to show signs of being a loser, make sure you don't play more";
+  } else if (parseInt(level) < 80) {
+    return "Keep going and you'll be shunned by society wherever you go. You've been warned.";
+  } else if (parseInt(level) < 120) {
+    return "Ewwwww get away from me";
+  } else if (parseInt(level) < 160) {
+    return "HOW DO YOU HAVE THIS MANY HOURS?? GET A SHOWER NOW!!!";
+  } else {
+    return "The year is 2052. You haven't seen the sun in years, and you still suck at Valorant. Your parents miss you. Was it worth it?";
+  }
+}
+
 async function create() {
   try {
     let user = in1.value;
     let tag = in2.value;
     let name_level = `https://api.henrikdev.xyz/valorant/v1/account/${user}/${tag}`;
-    console.log(name_level);
     const temp = await fetch(name_level);
     const array = await temp.json();
     console.log(array);
+    let levelText = levelreturn(array.data.account_level);
+    console.log(levelText);
     div.insertAdjacentHTML(
       "afterend",
       `<div class="help">
       <h1 class="subtitles">${array.data.name}</h1>
+      <p class="subtitles">your level is ${array.data.account_level}, ${levelText}</p>
       </div>`
     );
   } catch (error) {
