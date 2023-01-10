@@ -3,7 +3,7 @@ import "./style.css";
 const button = document.getElementById("btn");
 const in1 = document.getElementById("name");
 const in2 = document.getElementById("tag");
-const div = document.getElementById("amongus");
+const div = document.getElementById("wowie");
 
 function levelreturn(level) {
   if (parseInt(level) < 20) {
@@ -32,9 +32,11 @@ async function create() {
     let levelText = levelreturn(array.data.account_level);
     console.log(levelText);
     div.insertAdjacentHTML(
-      "afterend",
-      `<div class="help">
+      "beforeend",
+      `
+      <div class="amongus">
       <h1 class="subtitles">${array.data.name}</h1>
+      <image class= "banner" src="${array.data.card.wide}"></image> 
       <p class="subtitles">your level is ${array.data.account_level}, ${levelText}</p>
       </div>`
     );
