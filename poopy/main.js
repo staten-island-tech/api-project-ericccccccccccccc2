@@ -26,21 +26,30 @@ async function create() {
     let user = in1.value;
     let tag = in2.value;
     let name_level = `https://api.henrikdev.xyz/valorant/v1/account/${user}/${tag}`;
+    let mmr = `https://api.henrikdev.xyz/valorant/v1/mmr/na/${user}/${tag}`;
     const temp = await fetch(name_level);
     const array = await temp.json();
+    const temp2 = await fetch(mmr);
+    const mmrArray = await temp2.json();
     console.log(array);
     let levelText = levelreturn(array.data.account_level);
     console.log(levelText);
     div.insertAdjacentHTML(
-      "beforeend",
+      "afterbegin",
       `
       <div class="amongus">
-      <h1 class="subtitles">${array.data.name}</h1>
+      <h1 class="subtitles">${array.data.name} - rank: ${mmrArray.data.currenttierpatched}</h1>
       <image class= "banner" src="${array.data.card.wide}"></image> 
       <p class="subtitles">your level is ${array.data.account_level}, ${levelText}</p>
       </div>`
     );
   } catch (error) {
+    div.insertAdjacentHTML(
+      "afterbegin",
+      `
+      <div class="amongus">
+      <h1 class="subtitles">You had an invalid input OR your account is marked as private, chage your settings in the RIOT Client</h1>      </div>`
+    );
     console.log(error);
   }
 }
