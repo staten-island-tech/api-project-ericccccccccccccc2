@@ -17,7 +17,7 @@ function levelreturn(level) {
   } else if (parseInt(level) < 160) {
     return "HOW DO YOU HAVE THIS MANY HOURS?? GET A SHOWER NOW!!!";
   } else {
-    return "The year is 2052. You haven't seen the sun in years, and you still suck at Valorant. Your parents miss you. Was it worth it?";
+    return "The year is 2052. You haven't seen the sun in years, and you still suck at Valorant.";
   }
 }
 
@@ -48,7 +48,7 @@ async function create() {
       "afterbegin",
       `
       <div class="amongus">
-      <h1 class="subtitles">You had an invalid input OR your account is marked as private, chage your settings in the RIOT Client</h1>      </div>`
+      <h1 class="subtitles">You had an invalid input OR your account is marked as private, change your settings in the RIOT Client</h1>      </div>`
     );
     console.log(error);
   }
