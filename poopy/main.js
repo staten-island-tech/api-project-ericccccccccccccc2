@@ -39,7 +39,7 @@ async function create() {
       `
       <div class="amongus">
       <h1 class="subtitles">${array.data.name} - rank: ${mmrArray.data.currenttierpatched}</h1>
-      <image class= "banner" src="${array.data.card.wide}"></image> 
+      <image class= "banner" alt="the banner selected by the user in the video game Valorant" src="${array.data.card.wide}"></image> 
       <p class="subtitles">your level is ${array.data.account_level}, ${levelText}</p>
       </div>`
     );
